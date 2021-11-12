@@ -5,6 +5,7 @@ import logger from "morgan";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
 import ProductRouter from './api/routes/product.router';
+import ReservationRouter from './api/routes/reservation.router';
 
 // Load environment variables from `.env`
 dotenv.config();
@@ -25,11 +26,13 @@ app.use(urlencodedParser)
 // Router initialization and objects
 const appRouter: Router = Router();
 const productRoute = new ProductRouter(appRouter);
+const reservationRoute = new ReservationRouter(appRouter);
 
 app.get('/', (req, res) => {
   res.send('Express + TypeScript server.');
 });
 app.use('/api/product', productRoute.router);
+app.use('/api/tables', reservationRoute.router);
 
 app.listen(PORT, () => {
   console.log(`⚡️[server]: Server is running at http://localhost:${PORT}`);
