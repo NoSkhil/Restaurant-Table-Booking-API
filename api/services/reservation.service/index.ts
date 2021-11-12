@@ -52,7 +52,7 @@ class ReservationService {
   // Check if the table was blocked by an admin during the booking session of the user.
     const table = await this.tableModel.findOne({_id:reservationDTO.table});
     if (!table) throw new Error("Invalid table selected!"); 
-    else if (table.status != "OPEN") throw new Error("The table has been blocked by staff during the booking session!");
+    else if (table.status !== "OPEN") throw new Error("The table has been blocked by staff during the booking session!");
 
   // Check if a different user has booked the same table within the same timeframe during the booking session of the user.
     const checkReservation = await this.reservationModel.findOne({_id: reservationDTO.table, $or: [
