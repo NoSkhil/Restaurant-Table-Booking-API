@@ -8,11 +8,6 @@ export enum HttpVerb {
 }
 
 export const routes = {
-  ProductRoutes: {
-    ROOT: '/',
-    INFO: '/:id',
-    PURCHASE: '/:id/purchase'
-  },
   ReservationRoutes: {
     ROOT: '/',
     FETCH_AVAILABLE_TABLES: '/availability',
