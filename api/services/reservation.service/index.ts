@@ -71,7 +71,7 @@ class ReservationService {
     return await this.reservationModel.find();
   }
 
-// Admin selects a table and assigns a status to it (OPEN or BLOCKED)
+  // Admin selects a table and assigns a status to it (OPEN or BLOCKED)
   blockTable = async (blockDTO: IBlockDTO) => {
     return await this.tableModel.updateOne({_id:blockDTO.tableId},{ $set: { status: blockDTO.status } });
   }
