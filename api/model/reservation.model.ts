@@ -4,7 +4,7 @@ import { Types } from 'mongoose';
 
 export class Reservation {
 // The table being reserved
-  @prop({ type: Types.ObjectId, ref: getName(Table) })
+  @prop({required: true , type: Types.ObjectId, ref: getName(Table)})
   public table: Ref<Table>;
 
 // Starting time of the reservation
